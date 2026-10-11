@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111827">
+  <meta name="description" content="ماشین حساب ساده و سریع فارسی">
+  <title>ماشین حساب ساده</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <header>
+      <p class="eyebrow">ابزار محاسباتی</p>
+      <h1>ماشین حساب</h1>
+      <p class="subtitle">ساده، سریع و مناسب موبایل</p>
+    </header>
+    <section class="calculator" aria-label="ماشین حساب">
+      <div class="screen" aria-live="polite">
+        <div id="previous" class="previous"></div>
+        <output id="display" class="display">0</output>
+      </div>
+      <div class="keys">
+        <button class="utility" data-action="clear">پاک‌کردن</button>
+        <button class="utility" data-action="delete" aria-label="حذف آخرین رقم">⌫</button>
+        <button class="operator" data-operator="÷">÷</button>
+        <button data-number="7">۷</button><button data-number="8">۸</button><button data-number="9">۹</button><button class="operator" data-operator="×">×</button>
+        <button data-number="4">۴</button><button data-number="5">۵</button><button data-number="6">۶</button><button class="operator" data-operator="−">−</button>
+        <button data-number="1">۱</button><button data-number="2">۲</button><button data-number="3">۳</button><button class="operator" data-operator="+">+</button>
+        <button data-action="sign">±</button><button data-number="0">۰</button><button data-action="decimal">.</button><button class="equals" data-action="equals">=</button>
+      </div>
+      <p id="message" class="message" role="status"></p>
+    </section>
+    <footer>ساخته‌شده با HTML، CSS و JavaScript · نسخه رایگان</footer>
+  </main>
+</body>
+</html>

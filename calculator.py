@@ -1,31 +1,41 @@
-def calculate(a, operator, b):
+"""A simple command-line calculator."""
+
+
+def calculate(a: float, operator: str, b: float) -> float:
+    """Perform one of the four basic arithmetic operations."""
     if operator == "+":
         return a + b
-    elif operator == "-":
+    if operator == "-":
         return a - b
-    elif operator == "*":
+    if operator == "*":
         return a * b
-    elif operator == "/":
+    if operator == "/":
         if b == 0:
-            return "خطا: تقسیم بر صفر!"
+            raise ZeroDivisionError("تقسیم بر صفر امکان‌پذیر نیست.")
         return a / b
-    else:
-        return "عملگر نامعتبر است!"
+    raise ValueError("عملگر نامعتبر است. از +، -، * یا / استفاده کن.")
 
 
-print("ماشین حساب ساده")
+def main() -> None:
+    print("ماشین حساب ساده")
+    print("برای خروج، در قسمت عدد اول q را وارد کن.")
 
-while True:
-    try:
-        a = input("عدد اول (برای خروج q): ")
-        if a.lower() == "q":
+    while True:
+        first_text = input("\nعدد اول: ").strip()
+        if first_text.lower() in {"q", "quit", "exit"}:
+            print("خدانگهدار!")
             break
 
-        a = float(a)
-        operator = input("عملگر (+ - * /): ")
-        b = float(input("عدد دوم: "))
+        try:
+            first = float(first_text)
+            operator = input("عملگر (+ - * /): ").strip()
+            second = float(input("عدد دوم: ").strip())
+            print("نتیجه:", calculate(first, operator, second))
+        except ValueError as error:
+            print("خطای ورودی:", error)
+        except ZeroDivisionError as error:
+            print("خطای محاسباتی:", error)
 
-        print("نتیجه:", calculate(a, operator, b))
 
-    except ValueError:
-        print("لطفاً عدد معتبر وارد کن.")
+if __name__ == "__main__":
+    main()

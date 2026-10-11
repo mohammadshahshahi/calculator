@@ -34,3 +34,6 @@ python -m unittest discover -v
 
 ## انتشار رایگان
 نسخه وب با GitHub Pages و GitHub Actions منتشر می‌شود. کدهای پروژه تحت مجوز MIT هستند.
+
+
+نسخه وب: https://mohammadshahshahi.github.io/calculator/

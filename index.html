@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#111827">
 <meta name="description" content="ماشین حساب مهندسی و ابزار تبدیل واحد رایگان فارسی">
-<title>ماشین حساب مهندسی</title><link rel="stylesheet" href="style.css"><script src="app.js" defer></script>
+<title>ماشین حساب</title><link rel="stylesheet" href="style.css"><script src="app.js" defer></script>
 </head>
 <body><main class="app">
-<header><p class="eyebrow">ابزار محاسباتی رایگان</p><h1>ماشین حساب مهندسی</h1><p class="subtitle">محاسبات علمی و تبدیل واحد، در موبایل و کامپیوتر</p></header>
-<nav class="tabs" aria-label="بخش‌های برنامه"><button class="tab active" data-tab="scientific">ماشین حساب</button><button class="tab" data-tab="converter">تبدیل واحد</button></nav>
-<section id="scientific" class="panel active">
+<header><p class="eyebrow">ابزار محاسباتی رایگان</p><h1>ماشین حساب</h1><p class="subtitle" id="modeSubtitle">ماشین حساب ساده</p></header>
+<div class="mode-bar"><button id="engineeringToggle" class="mode-toggle" type="button" aria-pressed="false">⚙ حالت مهندسی</button></div><nav class="tabs engineering-tabs" aria-label="بخش‌های برنامه" hidden><button class="tab active" data-tab="scientific">ماشین حساب مهندسی</button><button class="tab" data-tab="converter">تبدیل واحد</button></nav>
+<section id="scientific" class="panel active simple-mode">
 <div class="screen" aria-live="polite"><div id="previous" class="previous"></div><output id="display" class="display">0</output></div>
 <div class="settings-row"><span>واحد زاویه</span><div class="segmented"><button id="deg" class="selected">درجه DEG</button><button id="rad">رادیان RAD</button></div></div>
 <div class="keys scientific-keys">
@@ -32,5 +32,5 @@
 <label for="convertValue">مقدار</label><input id="convertValue" type="number" inputmode="decimal" value="1" step="any">
 <div class="result-card"><span>نتیجه تبدیل</span><output id="convertResult">—</output><button id="swap" class="swap">جابه‌جایی واحدها ⇄</button></div>
 </section>
-<footer>ماشین حساب مهندسی · رایگان و بدون نیاز به نصب</footer>
+<footer>ماشین حساب · رایگان و بدون نیاز به نصب</footer>
 </main></body></html>

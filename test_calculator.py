@@ -17,10 +17,12 @@ class CalculatorTests(unittest.TestCase):
         self.assertEqual(calculate(10, "/", 2), 5)
 
     def test_division_by_zero(self):
-        self.assertEqual(calculate(10, "/", 0), "خطا: تقسیم بر صفر!")
+        with self.assertRaises(ZeroDivisionError):
+            calculate(10, "/", 0)
 
     def test_invalid_operator(self):
-        self.assertEqual(calculate(2, "%", 3), "عملگر نامعتبر است!")
+        with self.assertRaises(ValueError):
+            calculate(2, "%", 3)
 
 
 if __name__ == "__main__":

@@ -1,6 +1,22 @@
 (() => {
 const $=s=>document.querySelector(s), display=$("#display"),previous=$("#previous"),message=$("#message");
 let expression="",degrees=true,lastAnswer="";
+const engineeringToggle=$("#engineeringToggle"),engineeringTabs=$(".engineering-tabs"),modeSubtitle=$("#modeSubtitle");
+const advancedValues=new Set(["sin(","cos(","tan(","√(","asin(","acos(","atan(","ln(","log(","π","e","^","!","%","abs(","÷100"]);
+document.querySelectorAll(".scientific-keys [data-insert]").forEach(b=>{if(advancedValues.has(b.dataset.insert))b.classList.add("advanced-key");});
+engineeringToggle.addEventListener("click",()=>{
+ const enabled=engineeringToggle.getAttribute("aria-pressed")!=="true";
+ engineeringToggle.setAttribute("aria-pressed",String(enabled));
+ engineeringToggle.textContent=enabled?"✓ حالت مهندسی فعال است":"⚙ حالت مهندسی";
+ engineeringTabs.hidden=!enabled;
+ $("#scientific").classList.toggle("simple-mode",!enabled);
+ modeSubtitle.textContent=enabled?"ماشین حساب مهندسی و تبدیل واحد":"ماشین حساب ساده";
+ if(!enabled){
+  document.querySelectorAll(".tab,.panel").forEach(x=>x.classList.remove("active"));
+  document.querySelector('[data-tab="scientific"]').classList.add("active");
+  $("#scientific").classList.add("active");
+ }
+});
 const render=()=>{display.textContent=expression||"0";};
 function insert(v){if(lastAnswer&&/^[0-9.(πe]/.test(v))expression="";lastAnswer="";expression+=v;message.textContent="";render();}
 function clear(){expression="";lastAnswer="";previous.textContent="";message.textContent="";render();}
